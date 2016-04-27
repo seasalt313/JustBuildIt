@@ -14,6 +14,7 @@ class BlogPostsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
   end
 
   def create
@@ -36,6 +37,7 @@ class BlogPostsController < ApplicationController
   		else
   			format.html {render :edit}
   		end
+    end
   end
 
   def destroy
@@ -57,14 +59,6 @@ private
 
 
 end
-
-
-
-
-
-
-
-
 
 
 
