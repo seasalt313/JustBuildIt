@@ -1,6 +1,11 @@
 class BlogPostsController < ApplicationController
 	before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
 
+def your_posts
+
+end
+
+
   def index
   	@blog_posts = BlogPost.all
   end
@@ -35,6 +40,7 @@ class BlogPostsController < ApplicationController
   		if @blog_post.update(blog_post_params) 
   			format.html {redirect_to @blog_post, notice: "Blog post was updated successfully."}
   		else
+
   			format.html {render :edit}
   		end
     end
@@ -50,7 +56,7 @@ class BlogPostsController < ApplicationController
 private
 
 	def blog_post_params
-		params.require(:blog_post).permit(:title, :author, :blog_entry)
+		params.require(:blog_post).permit(:title, :blog_entry, :user_id)
 	end
 
 	def set_blog_post

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'your_posts' => 'blog_posts#your_posts'
+
+  devise_for :users
 resources :blog_posts
 resources :comments, only: [:edit, :create, :update, :destroy]
 

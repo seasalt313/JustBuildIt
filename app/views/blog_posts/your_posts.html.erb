@@ -1,8 +1,5 @@
-<h1>Welcome <%= current_user.username %> </h1>
+<% current_user.blog_posts.each do |blog_post| %>
 
-<div class="row">
-	<% @blog_posts.each do |blog_post| %>
-	
 	<div class="col-md-6">
 		<div class= "panel panel-default">
 			<div class="panel-heading">
@@ -16,26 +13,15 @@
 			</div>
 
 			<div class="panel-footer">
-			<% if current_user.id == blog_post.user.id %>
+				<%= link_to 'Show', blog_post, class: "btn btn-primary" %>
 
 				<%= link_to 'Edit', edit_blog_post_path(blog_post), class: "btn btn-warning"%>
 
 				<%= link_to 'Destroy', blog_post, method: :delete, data: {confrim: 'Are you sure?' },
 					class: "btn btn-danger" %>
-			<%end%>
 			</div>
 			
 		</div>
 		
 	</div>
 	<% end %>
-</div>
-<br />
-
-<%= link_to 'New Blog Post', new_blog_post_path %>
-
-
-
-
-
-
